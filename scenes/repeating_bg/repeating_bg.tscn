@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://scenes/repeating_bg/repeating_bg.gd" type="Script" id=1]
+[ext_resource path="res://scenes/repeating_bg/repeating_bg_transparency_tileset.xml" type="TileSet" id=2]
+
+[sub_resource type="CanvasItemShader" id=1]
+
+_code = { "fragment":"uniform texture mask;\nuniform vec2 rel_mask_size;\n\nif(length(rel_mask_size) > 0)\n{\n\tif(tex(mask, vec2(UV.x / rel_mask_size.x, UV.y / rel_mask_size.y)).a > 0.001)\n\t{\n\t\tCOLOR.a = 0;\n\t}\n}", "fragment_ofs":0, "light":"", "light_ofs":0, "vertex":"", "vertex_ofs":0 }
+
+[sub_resource type="CanvasItemMaterial" id=2]
+
+shader/shader = SubResource( 1 )
+shader/shading_mode = 0
+shader_param/rel_mask_size = Vector2( 0, 0 )
+
+[node name="repeating_bg" type="Control"]
+
+material/material = SubResource( 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = -1.0
+margin/right = 154.0
+margin/bottom = 133.0
+script/script = ExtResource( 1 )
+image_path = null
+transparency_mask_path = "transparency_mask"
+
+[node name="transparency_mask" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray(  )
+
+[connection signal="resized" from="." to="." method="_on_resized"]
+
+
