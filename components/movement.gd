@@ -11,13 +11,28 @@ func set_next_state(state):
 		
 #input cache
 var move_input = Vector2(0,0) setget move
-var principal_moving_direction = "idle"
-var prev_principal_moving_direction = "idle"
+var principal_moving_direction = "idle_down"
+var prev_principal_moving_direction = "idle_down"
 
 func move(direction):
 	prev_principal_moving_direction = principal_moving_direction
-	principal_moving_direction = _get_principal_moving_direction()
+	
 	move_input = direction
+	
+	var a = move_input.angle()
+	
+	if(move_input.length() < 0.001 and principal_moving_direction.substr(0,5) != "idle_"):
+		principal_moving_direction = "idle_" + principal_moving_direction
+	elif(move_input.length() >= 0.001):
+		if(a > -PI*3/4 and a < -PI*1/4):
+			principal_moving_direction = "left"
+		elif(a > -PI*1/4-0.001 and a < PI*1/4+0.001):
+			principal_moving_direction = "down"
+		elif(a > PI*1/4 and a < PI*3/4):
+			principal_moving_direction = "right"
+		elif(a > PI*3/4-0.001 or a < -PI*3/4+0.001):
+			principal_moving_direction = "up"
+		
 	
 func stop():
 	move_input = Vector2(0,0)
@@ -70,21 +85,6 @@ func _do_move(delta):
 		var n = parent.get_collision_normal()
 		var slide = n.slide(by)
 		parent.move(slide)
-		
-func _get_principal_moving_direction():
-	var a = move_input.angle()
-	
-	if(move_input.length() < 0.001):
-		return "idle"
-	
-	if(a > -PI*3/4 and a < -PI*1/4):
-		return "left"
-	elif(a > -PI*1/4-0.001 and a < PI*1/4+0.001):
-		return "down"
-	elif(a > PI*1/4 and a < PI*3/4):
-		return "right"
-	elif(a > PI*3/4-0.001 or a < -PI*3/4+0.001):
-		return "up"
 		
 func get_principal_moving_direction():
 	return principal_moving_direction

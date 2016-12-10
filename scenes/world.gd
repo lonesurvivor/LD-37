@@ -26,8 +26,6 @@ func _ready():
 	player_node = load("res://entities/player.tscn").instance()
 	switch_scene("start")
 	
-	show_text(["a","b"])
-	
 func _process(delta):
 	if(player_node.is_inside_tree()):
 		get_node("camera").set_pos(player_node.get_global_pos())
@@ -69,5 +67,7 @@ func _input(event):
 	if(!g.has_player_control() and get_node("ui/textbox").is_visible()):
 		if(event.is_action_pressed("ui_accept")):
 			next_text_page()
+			
+		get_tree().set_input_as_handled()
 	
 	
