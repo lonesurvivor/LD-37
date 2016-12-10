@@ -1,14 +1,16 @@
 extends Node
 
+const MAX_ITEMS = 10
+
 onready var combinations = get_node("/root/combinations")
+onready var items = get_node("/root/items")
 
 var player_inventory = Dictionary()
-var Item = preload("res://scripts/item.gd")
 
 signal inventory_changed
 
 func inventory_add(item):
-	if(player_inventory.size() >= 10):
+	if(player_inventory.size() >= MAX_ITEMS):
 		print("ERROR: inventory full")
 		return
 		
@@ -32,6 +34,7 @@ func inventory_has(item_id):
 	
 func inventory_combine(item1, item2):
 	var r = combinations.combine(item1, item2)
+	emit_signal("inventory_changed")
 
 var world_node = null setget set_world_node,get_world_node
 func set_world_node(node):

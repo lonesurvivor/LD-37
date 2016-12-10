@@ -16,10 +16,10 @@ anchor_mode = 1
 rotating = false
 current = true
 zoom = Vector2( 0.3, 0.3 )
-limit/left = -10000000
-limit/top = -10000000
-limit/right = 10000000
-limit/bottom = 10000000
+limit/left = -32
+limit/top = -32
+limit/right = 800
+limit/bottom = 800
 limit/smoothed = false
 drag_margin/h_enabled = true
 drag_margin/v_enabled = true
@@ -72,6 +72,7 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="inventory" type="TextureFrame" parent="ui"]
 
+editor/display_folded = true
 rect/scale = Vector2( 3.33, 3.33 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -83,7 +84,7 @@ margin/right = 839.0
 margin/bottom = 201.0
 stretch_mode = 0
 script/script = ExtResource( 4 )
-__meta__ = { "_edit_group_":true }
+__meta__ = { "_edit_lock_":true }
 
 [node name="slot0" type="TextureFrame" parent="ui/inventory"]
 
@@ -214,5 +215,20 @@ margin/right = 337.0
 margin/bottom = 40.0
 texture = ExtResource( 5 )
 stretch_mode = 0
+
+[node name="name" type="Label" parent="ui"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 24.0
+margin/top = 132.0
+margin/right = 456.0
+margin/bottom = 165.0
+custom_fonts/font = ExtResource( 3 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 

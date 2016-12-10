@@ -2,8 +2,11 @@ extends Node
 
 onready var g = get_node("/root/global")
 
+var current_scene_name = ""
+
 var scene_paths = {
-	"start" : "res://scenes/start.tscn" 
+	"present" : "res://scenes/present.tscn",
+	"past" : "res://scenes/past.tscn" 
 	}
 	
 var scenes = Dictionary()
@@ -24,7 +27,10 @@ func _ready():
 		scenes[i] = load(scene_paths[i])
 		
 	player_node = load("res://entities/player.tscn").instance()
-	switch_scene("start")
+	g.inventory_add(items.grappling_hook)
+	switch_scene("present")
+	if(get_node("scene").has_node("spawn")):
+		player_node.set_pos(get_node("scene/spawn").get_pos())
 	
 func _process(delta):
 	if(player_node.is_inside_tree()):
@@ -35,13 +41,13 @@ func switch_scene(scene):
 	if(s):
 		if(player_node.is_inside_tree()):
 			player_node.get_parent().remove_child(player_node)
-		s.queue_free()
-		yield(get_tree(), "idle_frame")
+		s.free()
 	
 	var i = scenes[scene].instance()
 	i.set_name("scene")
 	i.get_node("entities").add_child(player_node)
 	add_child(i)
+	current_scene_name = scene
 	
 var text_shown = []
 var text_shown_pointer = 0
@@ -83,6 +89,11 @@ func _input(event):
 			var item = get_node("ui/inventory").get_selected_item()
 			if(item != null):
 				show_text(item.description)
+		elif(event.is_action_pressed("ui_page_down")):
+			if(current_scene_name == "past"):
+				switch_scene("present")
+			elif(current_scene_name == "present"):
+				switch_scene("past")
 	elif(!g.has_player_control() and get_node("ui/textbox").is_visible()):
 		if(event.is_action_pressed("ui_accept") or event.is_action_pressed("ui_combine")  or event.is_action_pressed("ui_inspect")):
 			next_text_page()

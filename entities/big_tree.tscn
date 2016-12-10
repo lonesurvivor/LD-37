@@ -9,7 +9,7 @@ points = Vector2Array( -38, 75, -38, 30, 33, 30, 33, 75 )
 
 [sub_resource type="GDScript" id=2]
 
-script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nfunc on_player_interaction(item):\n\tg.inventory_add(g.Item.new(\"a\",\"a\",\"a\",\"res://images/inv_chainsaw.png\"))\n\tg.inventory_add(g.Item.new(\"b\",\"b\",\"b\",\"res://images/inv_chainsaw.png\"))\n"
+script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nfunc on_player_interaction(item):\n\tg.inventory_add(g.items.chainsaw)\n\tg.inventory_add(g.items.chainsaw2)\n"
 
 [node name="interactable" type="StaticBody2D"]
 

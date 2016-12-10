@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 onready var g = get_node("/root/global")
 
+var hook_projectile_scene = preload("res://entities/hook.tscn")
+
 onready var interactor_length = get_node("interactor").get_cast_to().length()
 
 onready var movement = get_node("movement")
@@ -32,9 +34,16 @@ func interact(item):
 	var c = get_node("interactor").get_collider()
 	if(c and get_node("interactor").is_colliding()): 
 		if(c.has_method("on_player_interaction")):
+			movement.stop()
 			c.on_player_interaction(item)
-	elif(item):
-		pass # code for item usage without interacting
+	elif(item and item.id == "grappling_hook"):
+		movement.stop()
+		var direction = get_node("interactor").get_cast_to().normalized()
+		var hp = hook_projectile_scene.instance()
+		g.get_world_node().get_node("scene/entities").add_child(hp)
+		hp.set_pos(get_pos())
+		hp.throw(direction)
+		
 
 func handle_movement_input():
 	if g.has_player_control():

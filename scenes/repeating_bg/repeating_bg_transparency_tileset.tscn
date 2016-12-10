@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=1]
 
-[ext_resource path="reapeating_bg_transparency_tiles.png" type="Texture" id=1]
+[ext_resource path="res://scenes/repeating_bg/reapeating_bg_transparency_tiles.png" type="Texture" id=1]
 
 [node name="repeating_bg_transparency_tileset" type="Node"]
 

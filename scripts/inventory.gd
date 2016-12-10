@@ -1,7 +1,5 @@
 extends TextureFrame
 
-const MAX_ITEMS = 10
-
 onready var g = get_node("/root/global")
 
 var background_texture = preload("res://images/inventory_item_background.png")
@@ -16,22 +14,28 @@ func _ready():
 	select_slot(-1)
 
 func select_slot(n):
-	for i in range(0,MAX_ITEMS):
+	for i in range(0,g.MAX_ITEMS):
 		get_node("slot" + str(i)).set_texture(background_texture)
 
 	selected_slot = n
 	if(n >= 0):
 		get_node("slot" + str(selected_slot)).set_texture(background_texture_selected)
+	var i = get_selected_item()
+	if(i):
+		get_node("../name").set_text(i.name)
+	else:
+		get_node("../name").set_text("")
+
 	if(combine_slot >= 0):
 		get_node("slot" + str(combine_slot)).set_texture(background_texture_combine)
 	
 	
 func change_slot(relative):
 	var n = selected_slot + relative
-	if(n > MAX_ITEMS-1):
+	if(n > g.MAX_ITEMS-1):
 		n = 0
 	elif(n < 0):
-		n = MAX_ITEMS-1
+		n = g.MAX_ITEMS-1
 	select_slot(n)
 	
 func deselect_slots():
@@ -72,7 +76,7 @@ func _inventory_changed():
 			
 	var c = 0
 	for i in g.player_inventory:
-		if(c >= MAX_ITEMS):
+		if(c >= g.MAX_ITEMS):
 			print("ERROR: too much items in inv")
 		
 		var t = TextureFrame.new()
@@ -81,4 +85,6 @@ func _inventory_changed():
 		get_node("slot" + str(c)).add_child(t)
 		slot_items.append(g.player_inventory[i])
 		c += 1
+		
+	select_slot(selected_slot)
 	

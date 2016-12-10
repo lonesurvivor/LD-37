@@ -31,8 +31,8 @@ func changed():
 #
 	large_image = Image(size_x*iw, size_y*ih, false, image.get_format())
 #
-	for i in range(size_x):
-		for j in range(size_y):
+	for i in range(size_x-1):
+		for j in range(size_y-1):
 			large_image.blit_rect(image, Rect2(0,0,iw,ih), Vector2(i*iw,j*ih))
 #
 	large_image_texture.create_from_image(large_image, 0)
@@ -67,7 +67,7 @@ func changed():
 		
 	else:
 		#make sure the shader is disabled in tool mode
-		get_material().set_shader_param("rel_mask_size", Vector2(0,0))
+		set_material().set_shader_param("rel_mask_size", Vector2(0,0))
 
 
 
