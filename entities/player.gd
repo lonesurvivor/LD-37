@@ -9,8 +9,6 @@ onready var anim = get_node("anim")
 
 func _ready():
 	set_process(true)
-	set_process_input(true)
-	
 	
 func _process(delta):
 	handle_movement_input()
@@ -30,21 +28,19 @@ func _process(delta):
 			
 		get_node("interactor").set_cast_to(ic * interactor_length)
 
-func _input(event):
-	if(g.has_player_control()):
-		if(event.is_action_pressed("ui_accept")):
-			var c = get_node("interactor").get_collider()
-			if(c and get_node("interactor").is_colliding()): 
-				if(c.has_method("on_player_interaction")):
-					c.on_player_interaction()
-					
-		get_tree().set_input_as_handled()
+func interact(item):
+	var c = get_node("interactor").get_collider()
+	if(c and get_node("interactor").is_colliding()): 
+		if(c.has_method("on_player_interaction")):
+			c.on_player_interaction(item)
+	elif(item):
+		pass # code for item usage without interacting
 
 func handle_movement_input():
 	if g.has_player_control():
 		var m = Vector2(0,0)
-		m.x = Input.is_action_pressed("ui_right") - Input.is_action_pressed("ui_left")
-		m.y = Input.is_action_pressed("ui_down") - Input.is_action_pressed("ui_up")
+		m.x = Input.is_action_pressed("right") - Input.is_action_pressed("left")
+		m.y = Input.is_action_pressed("down") - Input.is_action_pressed("up")
 		movement.move(m)
 	
 	

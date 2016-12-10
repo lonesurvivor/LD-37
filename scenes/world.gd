@@ -43,8 +43,6 @@ func switch_scene(scene):
 	i.get_node("entities").add_child(player_node)
 	add_child(i)
 	
-# text printing stuff
-
 var text_shown = []
 var text_shown_pointer = 0
 	
@@ -64,10 +62,23 @@ func next_text_page():
 		text_shown_pointer += 1
 	
 func _input(event):
-	if(!g.has_player_control() and get_node("ui/textbox").is_visible()):
+	if(g.has_player_control()):
+		if(event.is_action_pressed("ui_accept")):
+			var item = get_node("ui/inventory").get_selected_item()
+			player_node.interact(item)
+			
+		elif(event.is_action_pressed("ui_left")):
+			get_node("ui/inventory").change_slot(-1)
+		elif(event.is_action_pressed("ui_right")):
+			get_node("ui/inventory").change_slot(+1)
+		elif(event.is_action_pressed("ui_cancel")):
+			get_node("ui/inventory").deselect_slots()
+	elif(!g.has_player_control() and get_node("ui/textbox").is_visible()):
 		if(event.is_action_pressed("ui_accept")):
 			next_text_page()
 			
-		get_tree().set_input_as_handled()
+
+			
+	get_tree().set_input_as_handled()
 	
 	

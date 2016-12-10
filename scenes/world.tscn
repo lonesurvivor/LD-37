@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scenes/world.gd" type="Script" id=1]
 [ext_resource path="res://images/textbox_background.png" type="Texture" id=2]
 [ext_resource path="res://fonts/masaaki.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://scripts/inventory.gd" type="Script" id=4]
+[ext_resource path="res://images/inventory_item_background.png" type="Texture" id=5]
 
 [node name="world" type="Node"]
 
@@ -44,9 +46,9 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 269.0
+margin/left = 259.0
 margin/top = 485.0
-margin/right = 1069.0
+margin/right = 1059.0
 margin/bottom = 685.0
 texture = ExtResource( 2 )
 stretch_mode = 0
@@ -67,5 +69,150 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 __meta__ = { "_edit_lock_":true }
+
+[node name="inventory" type="TextureFrame" parent="ui"]
+
+rect/scale = Vector2( 3.33, 3.33 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 21.0
+margin/top = 16.0
+margin/right = 839.0
+margin/bottom = 201.0
+stretch_mode = 0
+script/script = ExtResource( 4 )
+__meta__ = { "_edit_group_":true }
+
+[node name="slot0" type="TextureFrame" parent="ui/inventory"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="slot1" type="TextureFrame" parent="ui/inventory"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 33.0
+margin/top = 0.0
+margin/right = 73.0
+margin/bottom = 40.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="slot2" type="TextureFrame" parent="ui/inventory"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 66.0
+margin/top = 0.0
+margin/right = 106.0
+margin/bottom = 40.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="slot3" type="TextureFrame" parent="ui/inventory"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 99.0
+margin/top = 0.0
+margin/right = 139.0
+margin/bottom = 40.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="slot4" type="TextureFrame" parent="ui/inventory"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 132.0
+margin/top = 0.0
+margin/right = 172.0
+margin/bottom = 40.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="slot5" type="TextureFrame" parent="ui/inventory"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 165.0
+margin/top = 0.0
+margin/right = 205.0
+margin/bottom = 40.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="slot6" type="TextureFrame" parent="ui/inventory"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 198.0
+margin/top = 0.0
+margin/right = 238.0
+margin/bottom = 40.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="slot7" type="TextureFrame" parent="ui/inventory"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 231.0
+margin/top = 0.0
+margin/right = 271.0
+margin/bottom = 40.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="slot8" type="TextureFrame" parent="ui/inventory"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 264.0
+margin/top = 0.0
+margin/right = 304.0
+margin/bottom = 40.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="slot9" type="TextureFrame" parent="ui/inventory"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 297.0
+margin/top = 0.0
+margin/right = 337.0
+margin/bottom = 40.0
+texture = ExtResource( 5 )
+stretch_mode = 0
 
 
