@@ -47,6 +47,8 @@ var text_shown = []
 var text_shown_pointer = 0
 	
 func show_text(text_array):
+	if(typeof(text_array) == TYPE_STRING):
+		text_array = [text_array]
 	g.set_player_control(false)
 	get_node("ui/textbox").show()
 	text_shown_pointer = 0
@@ -73,8 +75,16 @@ func _input(event):
 			get_node("ui/inventory").change_slot(+1)
 		elif(event.is_action_pressed("ui_cancel")):
 			get_node("ui/inventory").deselect_slots()
+		elif(event.is_action_pressed("ui_combine")):
+			var result = get_node("ui/inventory").combine()
+			if(result != null):
+				g.inventory_combine(result[0], result[1])
+		elif(event.is_action_pressed("ui_inspect")):
+			var item = get_node("ui/inventory").get_selected_item()
+			if(item != null):
+				show_text(item.description)
 	elif(!g.has_player_control() and get_node("ui/textbox").is_visible()):
-		if(event.is_action_pressed("ui_accept")):
+		if(event.is_action_pressed("ui_accept") or event.is_action_pressed("ui_combine")  or event.is_action_pressed("ui_inspect")):
 			next_text_page()
 			
 

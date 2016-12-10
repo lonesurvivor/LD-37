@@ -1,5 +1,7 @@
 extends Node
 
+onready var combinations = get_node("/root/combinations")
+
 var player_inventory = Dictionary()
 var Item = preload("res://scripts/item.gd")
 
@@ -27,6 +29,9 @@ func inventory_remove(item_id):
 	
 func inventory_has(item_id):
 	return player_inventory.has(item_id)
+	
+func inventory_combine(item1, item2):
+	var r = combinations.combine(item1, item2)
 
 var world_node = null setget set_world_node,get_world_node
 func set_world_node(node):
