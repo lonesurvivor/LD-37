@@ -20,3 +20,4 @@ TODO:
 - (Nach Interaktion INventar verlassen)
 - (Animation stoppen wenn keine Spielerkontrolle)
 - (Idle-Animation)
+- (Derzeitigen Inventarstatus anzeigen ("kombiniere A mit ", "Benutze A", ..))

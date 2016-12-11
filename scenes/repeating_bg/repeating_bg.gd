@@ -70,8 +70,9 @@ func changed():
 			vp.queue_free()
 			
 		else:
+			pass
 			#make sure the shader is disabled in tool mode
-			set_material().set_shader_param("rel_mask_size", Vector2(0,0))
+			#set_material().set_shader_param("rel_mask_size", Vector2(0,0))
 			
 		first = false
 

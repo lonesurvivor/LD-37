@@ -39,20 +39,28 @@ func stop():
 	anim.play(a)
 
 func interact(item):
-	if(get_node("interactor").is_colliding()): 
-		var c = get_node("interactor").get_collider()
-		if(c.has_method("on_player_interaction")):
-			stop()
-			var ir = c.on_player_interaction(item)
-			if(!ir):
-				g.show_text(fail_texts[randi() % fail_texts.size()])
+	var wn = g.get_world_node()
+	
+	var c = get_node("interactor").get_collider()
+	if(get_node("interactor").is_colliding() and c.has_method("on_player_interaction")): 
+		stop()
+		var ir = c.on_player_interaction(item)
+		if(!ir):
+			g.show_text(fail_texts[randi() % fail_texts.size()])
+	
 	elif(item and item.id == "grappling_hook"):
 		movement.stop()
 		var direction = get_node("interactor").get_cast_to().normalized()
 		var hp = hook_projectile_scene.instance()
-		g.get_world_node().scene_node.get_node("entities").add_child(hp)
+		wn.scene_node.get_node("entities").add_child(hp)
 		hp.set_pos(get_pos())
 		hp.throw(direction)
+		
+	elif(item and (item.id == "artifact_1" or item.id == "artifact_2")):
+		if(wn.current_scene_name == "past"):
+			wn.switch_scene("present")
+		elif(wn.current_scene_name == "present" and item.id == "artifact_2"):
+			wn.switch_scene("past")
 		
 
 func handle_movement_input():
