@@ -55,7 +55,8 @@ func _collision(other):
 		player_node.movement.move(-2*(player_node.get_pos() - get_pos()).normalized())
 		
 func _body_collision(other):
-	pass
-#	if(other != player_node and other != self):
-#		movement.move(-direction)
-#		state = "in"
+	if(other.is_in_group("hook_target")):
+		state = "pull"
+		last_d = (player_node.get_pos() - get_pos()).length()
+		movement.stop()
+		player_node.movement.move(-2*(player_node.get_pos() - get_pos()).normalized())

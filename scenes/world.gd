@@ -2,6 +2,8 @@ extends Node
 
 onready var g = get_node("/root/global")
 
+signal text_ended
+
 var current_scene_name = ""
 var next_scene_name = ""
 var scene_node = null
@@ -41,8 +43,8 @@ func _ready():
 		soundtracks[i] = load(soundtrack_paths[i])
 		
 	player_node = load("res://entities/player.tscn").instance()
-	g.inventory_add(items.grappling_hook)
 	next_scene_name = "present"
+	g.inventory_add(g.items.machete)
 	switch_scene_now()
 	yield(get_tree(), "idle_frame")
 	if(scene_node.has_node("spawn")):
@@ -101,6 +103,7 @@ func next_text_page():
 	if(text_shown_pointer >= text_shown.size()):
 		get_node("ui/textbox").hide()
 		g.set_player_control(true)
+		emit_signal("text_ended")
 	else:
 		get_node("ui/textbox/text").set_text(text_shown[text_shown_pointer])
 		text_shown_pointer += 1

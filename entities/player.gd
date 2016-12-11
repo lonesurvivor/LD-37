@@ -9,7 +9,10 @@ onready var interactor_length = get_node("interactor").get_cast_to().length()
 onready var movement = get_node("movement")
 onready var anim = get_node("anim")
 
+var fail_texts = ["That doesn't work."]
+
 func _ready():
+	randomize()
 	set_process(true)
 	
 func _process(delta):
@@ -36,11 +39,13 @@ func stop():
 	anim.play(a)
 
 func interact(item):
-	var c = get_node("interactor").get_collider()
-	if(c and get_node("interactor").is_colliding()): 
+	if(get_node("interactor").is_colliding()): 
+		var c = get_node("interactor").get_collider()
 		if(c.has_method("on_player_interaction")):
-			movement.stop()
-			c.on_player_interaction(item)
+			stop()
+			var ir = c.on_player_interaction(item)
+			if(!ir):
+				g.show_text(fail_texts[randi() % fail_texts.size()])
 	elif(item and item.id == "grappling_hook"):
 		movement.stop()
 		var direction = get_node("interactor").get_cast_to().normalized()

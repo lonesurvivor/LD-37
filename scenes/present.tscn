@@ -1,17 +1,24 @@
-[gd_scene load_steps=39 format=1]
+[gd_scene load_steps=50 format=1]
 
 [ext_resource path="res://scenes/room_dummy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://images/background_1.png" type="Texture" id=2]
 [ext_resource path="res://tilesets/wall_tileset.tres" type="TileSet" id=3]
 [ext_resource path="res://tilesets/present_tileset.tres" type="TileSet" id=4]
-[ext_resource path="res://entities/big_tree.tscn" type="PackedScene" id=5]
-[ext_resource path="res://images/grave.png" type="Texture" id=6]
-[ext_resource path="res://images/shovel.png" type="Texture" id=7]
-
-[sub_resource type="ConvexPolygonShape2D" id=1]
-
-custom_solver_bias = 0.0
-points = Vector2Array( -17, -11, 2, -11, 2, 5, -16, 5 )
+[ext_resource path="res://entities/digging_spot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/shovel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/hanging_skeleton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://entities/small_rock.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/artifact_1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/hook_target.tscn" type="PackedScene" id=10]
+[ext_resource path="res://entities/metal_door.tscn" type="PackedScene" id=11]
+[ext_resource path="res://entities/grave.tscn" type="PackedScene" id=12]
+[ext_resource path="res://entities/altar.tscn" type="PackedScene" id=13]
+[ext_resource path="res://entities/note.tscn" type="PackedScene" id=14]
+[ext_resource path="res://entities/chainsaw.tscn" type="PackedScene" id=15]
+[ext_resource path="res://entities/fuel_can.tscn" type="PackedScene" id=16]
+[ext_resource path="res://entities/big_tree.tscn" type="PackedScene" id=17]
+[ext_resource path="res://entities/big_rock.tscn" type="PackedScene" id=18]
+[ext_resource path="res://entities/mole.tscn" type="PackedScene" id=19]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
@@ -213,6 +220,10 @@ tile_set = ExtResource( 4 )
 cell/size = Vector2( 8, 8 )
 tile_data = IntArray( 2555917, 6, 4521999, 536870921, 4587535, 536870921, 4587536, 536870921, 4587537, 536870921, 4653068, 536870921, 4653069, 536870921, 4653070, 536870921, 4653071, 536870921, 4653072, 536870921, 4653073, 536870921, 4653074, 536870921, 4718604, 536870921, 4718606, 536870921, 4718607, 536870921, 4718609, 536870921, 4718610, 536870921, 4784140, 536870921, 4784141, 536870921, 4784142, 536870921, 4784143, 536870921, 4784144, 536870921, 4784145, 536870921, 4784146, 536870921, 4849676, 536870921, 4849678, 536870921, 4849682, 536870921, 4849683, 536870921, 4849684, 536870921, 4915214, 536870921, 4915216, 8, 4915220, 536870921, 4915221, 536870921, 4915231, 1, 4980749, 536870921, 4980750, 536870921, 4980757, 536870921, 4980758, 536870921, 4980759, 536870921, 4980760, 536870921, 4980763, 536870921, 5046299, 1, 5111820, 8, 5111824, 8, 5111841, 9, 5111842, 9, 5111843, 9, 5111844, 9, 5111845, 9, 5177358, 6, 5177377, 9, 5177378, 9, 5177379, 9, 5177380, 9, 5177381, 9, 5242913, 9, 5242914, 9, 5242915, 9, 5242916, 9, 5242917, 9, 5242918, 9, 5308424, 6, 5308429, 7, 5308432, 8, 5308448, 9, 5308449, 9, 5308450, 9, 5308451, 9, 5308452, 9, 5308453, 9, 5308454, 9, 5373970, 7, 5373974, 7, 5373986, 9, 5373987, 9, 5373988, 9, 5373989, 9, 5373990, 9, 5439523, 9, 5439524, 9, 5439525, 9, 5439526, 9, 5505035, 7, 5505038, 6, 5505060, 9, 5505061, 9, 5570578, 6, 5636113, 7, 5701649, 7 )
 
+[node name="digging_spot" parent="floor_decoration_1" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 160, 704 )
+
 [node name="floor_decoration_2" parent="."]
 
 tile_set = ExtResource( 4 )
@@ -229,41 +240,66 @@ tile_set = ExtResource( 4 )
 cell/size = Vector2( 8, 8 )
 tile_data = IntArray( 2424856, 2, 4521989, 536870915, 4522000, 536870914, 4522006, 536870915, 4522018, 14, 4653084, 14, 4718618, 14, 4718622, 13, 4849667, 536870914, 4980748, 3, 5242884, 536870915, 5242899, 2, 5308452, 5, 5373967, 2, 5373976, 5, 5570567, 3 )
 
-[node name="Area2D" type="Area2D" parent="entities" groups=[ "hook_target" ]]
+[node name="shovel" parent="entities" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 198, 404 )
-input/pickable = true
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
+transform/pos = Vector2( 133, 498 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="entities/Area2D"]
+[node name="hanging_skeleton" parent="entities" instance=ExtResource( 7 )]
 
-build_mode = 0
-polygon = Vector2Array( -17, -11, 2, -11, 2, 5, -16, 5 )
-shape_range = Vector2( 0, 0 )
-trigger = false
+transform/pos = Vector2( 195, 561 )
 
-[node name="interactable" parent="entities" instance=ExtResource( 5 )]
+[node name="small_rock" parent="entities" instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 377, 382 )
+transform/pos = Vector2( 217, 707 )
 
-[node name="Sprite" type="Sprite" parent="entities"]
+[node name="artifact_1" parent="entities" instance=ExtResource( 9 )]
 
-transform/pos = Vector2( 107, 494 )
-texture = ExtResource( 6 )
+transform/pos = Vector2( 276, 697 )
 
-[node name="Sprite2" type="Sprite" parent="entities"]
+[node name="hook_target" parent="entities" instance=ExtResource( 10 )]
 
-transform/pos = Vector2( 130, 498 )
-texture = ExtResource( 7 )
+transform/pos = Vector2( 361, 533 )
+
+[node name="metal_door" parent="entities" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 381, 643 )
+
+[node name="grave" parent="entities" instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 274, 485 )
+
+[node name="altar" parent="entities" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 84, 728 )
+
+[node name="note" parent="entities" instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 78, 463 )
+text = [ "Test 1", "Test 2" ]
+
+[node name="chainsaw" parent="entities" instance=ExtResource( 15 )]
+
+transform/pos = Vector2( 375, 579 )
+
+[node name="fuel_can" parent="entities" instance=ExtResource( 16 )]
+
+transform/pos = Vector2( 315, 436 )
+
+[node name="big_tree" parent="entities" instance=ExtResource( 17 )]
+
+transform/pos = Vector2( 89, 353 )
+
+[node name="big_rock" parent="entities" instance=ExtResource( 18 )]
+
+transform/pos = Vector2( 18, 631 )
+
+[node name="mole" parent="entities" instance=ExtResource( 19 )]
+
+transform/pos = Vector2( 33, 738 )
 
 [node name="outer" type="StaticBody2D" parent="dlr_walls"]
 
+visibility/visible = false
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
