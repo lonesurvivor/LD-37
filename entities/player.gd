@@ -29,6 +29,11 @@ func _process(delta):
 			ic = Vector2(-1,0)
 			
 		get_node("interactor").set_cast_to(ic * interactor_length)
+		
+func stop():
+	movement.stop()
+	var a = movement.get_principal_moving_direction()
+	anim.play(a)
 
 func interact(item):
 	var c = get_node("interactor").get_collider()
@@ -40,7 +45,7 @@ func interact(item):
 		movement.stop()
 		var direction = get_node("interactor").get_cast_to().normalized()
 		var hp = hook_projectile_scene.instance()
-		g.get_world_node().get_node("scene/entities").add_child(hp)
+		g.get_world_node().scene_node.get_node("entities").add_child(hp)
 		hp.set_pos(get_pos())
 		hp.throw(direction)
 		

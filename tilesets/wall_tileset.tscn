@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=1]
 
-[ext_resource path="res://tilesets/tileset_1.png" type="Texture" id=1]
+[ext_resource path="res://tilesets/wall_tileset.png" type="Texture" id=1]
 
-[node name="tileset_1" type="Node"]
+[node name="wall_tileset" type="Node"]
 
 [node name="wall1" type="Sprite" parent="."]
 

@@ -3,6 +3,8 @@ extends Node
 onready var g = get_node("/root/global")
 
 var current_scene_name = ""
+var next_scene_name = ""
+var scene_node = null
 
 var scene_paths = {
 	"present" : "res://scenes/present.tscn",
@@ -10,6 +12,15 @@ var scene_paths = {
 	}
 	
 var scenes = Dictionary()
+	
+var soundtrack_paths = {
+	"present" : "res://audio/wastelands.ogg",
+	"past" : "res://audio/past.ogg" 
+	}
+	
+var soundtracks = Dictionary()
+
+
 
 var player_node = null setget set_player_node,get_player_node
 func set_player_node(node):
@@ -24,36 +35,60 @@ func _ready():
 	g.world_node = self
 	
 	for i in scene_paths:
-		scenes[i] = load(scene_paths[i])
+		scenes[i] = load(scene_paths[i]).instance()
+		
+	for i in soundtrack_paths:
+		soundtracks[i] = load(soundtrack_paths[i])
 		
 	player_node = load("res://entities/player.tscn").instance()
 	g.inventory_add(items.grappling_hook)
-	switch_scene("present")
-	if(get_node("scene").has_node("spawn")):
-		player_node.set_pos(get_node("scene/spawn").get_pos())
+	next_scene_name = "present"
+	switch_scene_now()
+	yield(get_tree(), "idle_frame")
+	if(scene_node.has_node("spawn")):
+		player_node.set_pos(scene_node.get_node("spawn").get_pos())
 	
 func _process(delta):
 	if(player_node.is_inside_tree()):
 		get_node("camera").set_pos(player_node.get_global_pos())
+
+# scene switching -------------------------------------------------------------------
 	
 func switch_scene(scene):
+	g.set_player_control(false)
+	player_node.stop()
+	get_node("anim").play("transition")
+	next_scene_name = scene
+	
+func switch_scene_now():
 	var s = get_node("scene")
 	if(s):
 		if(player_node.is_inside_tree()):
 			player_node.get_parent().remove_child(player_node)
-		s.free()
+		for i in s.get_children():
+			i.get_parent().remove_child(i)
+			
+	yield(get_tree(), "idle_frame")
 	
-	var i = scenes[scene].instance()
-	i.set_name("scene")
+	var i = scenes[next_scene_name]
+	scene_node = i
+	#i.set_name("scene")
 	i.get_node("entities").add_child(player_node)
-	add_child(i)
-	current_scene_name = scene
+	s.add_child(i)
+	
+	get_node("player").set_stream(soundtracks[next_scene_name])
+	get_node("player").play()
+	
+	current_scene_name = next_scene_name
+	g.set_player_control(true)
 	
 var text_shown = []
 var text_shown_pointer = 0
+
+# text stuff -------------------------------------------------------------------
 	
 func show_text(text_array):
-	player_node.movement.stop()
+	player_node.stop()
 	if(typeof(text_array) == TYPE_STRING):
 		text_array = [text_array]
 	g.set_player_control(false)
@@ -69,6 +104,8 @@ func next_text_page():
 	else:
 		get_node("ui/textbox/text").set_text(text_shown[text_shown_pointer])
 		text_shown_pointer += 1
+		
+# most input (except movement) -------------------------------------------------------------------
 	
 func _input(event):
 	if(g.has_player_control()):
