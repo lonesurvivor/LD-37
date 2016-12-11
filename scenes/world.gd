@@ -53,6 +53,7 @@ var text_shown = []
 var text_shown_pointer = 0
 	
 func show_text(text_array):
+	player_node.movement.stop()
 	if(typeof(text_array) == TYPE_STRING):
 		text_array = [text_array]
 	g.set_player_control(false)

@@ -48,8 +48,11 @@ func interact(item):
 func handle_movement_input():
 	if g.has_player_control():
 		var m = Vector2(0,0)
-		m.x = Input.is_action_pressed("right") - Input.is_action_pressed("left")
-		m.y = Input.is_action_pressed("down") - Input.is_action_pressed("up")
+		if(Input.is_joy_known(0)):
+			m = Vector2(Input.get_joy_axis(0, JOY_AXIS_0), Input.get_joy_axis(0, JOY_AXIS_1))
+		if(m.length() < 0.2):
+			m.x = Input.is_action_pressed("right") - Input.is_action_pressed("left")
+			m.y = Input.is_action_pressed("down") - Input.is_action_pressed("up")
 		movement.move(m)
 	
 	
