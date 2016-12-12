@@ -9,7 +9,7 @@ points = Vector2Array( 6, 6, 6, 16, -7, 16, -7, 6 )
 
 [sub_resource type="GDScript" id=2]
 
-script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nvar taken = false\n\nfunc on_player_interaction(item):\n\tif(!item and !taken):\n\t\tg.show_text([\"There\\u2019s a shovel sticking out of the ground next to the grave. Ready to bury someone, never to be seen again.\", \" Then again, I could simply take it. Nobody but I will decide whom to bury\\u2026or what to dig out.\"])\n\t\tg.inventory_add(g.items.shovel)\n\t\tget_node(\"sprite\").set_frame(1)\n\t\tget_node(\"collision\").set_trigger(true)\n\t\ttaken = true\n\t\treturn true\n\telse:\n\t\treturn false\n"
+script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nvar taken = false\n\nfunc on_player_interaction(item):\n\tif(!item and !taken):\n\t\tg.show_text([\"There\'s a shovel sticking out of the ground next to the grave. Ready to bury someone, never to be seen again.\", \"Then again, I could simply take it. Nobody but I will decide whom to bury or what to dig out.\"])\n\t\tg.inventory_add(g.items.shovel)\n\t\tget_node(\"sprite\").set_frame(1)\n\t\tget_node(\"collision\").set_trigger(true)\n\t\ttaken = true\n\t\treturn true\n\telse:\n\t\treturn false\n"
 
 [node name="shovel" type="StaticBody2D"]
 

@@ -33,7 +33,9 @@ func combine(item1, item2):
 		g.inventory_add(g.items.artifact_3)
 		g.inventory_remove("artifact_1")
 		g.inventory_remove("artifact_2")
-		g.show_text("It fits.")
 		g.get_world_node().get_node("samples").play("artifact_complete")
+		g.show_text("It fits.")
+	else:
+		g.show_text("These don't fit together")
 
 	

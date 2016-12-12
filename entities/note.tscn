@@ -9,7 +9,7 @@ points = Vector2Array( -6, -12, 5, -12, 5, 0, -6, 0 )
 
 [sub_resource type="GDScript" id=2]
 
-script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nexport var text = []\n\nfunc on_player_interaction(item):\n\tif(!item):\n\t\tvar t = [\"There is a note here:\"]\n\t\tfor i in text:\n\t\t\tt.append(i)\n\t\tg.show_text(t)\n\t\treturn true\n\telse:\n\t\treturn false\n"
+script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nexport var text = []\n\nfunc on_player_interaction(item):\n\tif(!item):\n\t\tg.show_text(text)\n\t\treturn true\n\telse:\n\t\treturn false\n"
 
 [node name="note" type="StaticBody2D"]
 
