@@ -4,7 +4,8 @@ My Ludum Dare #37 game
 TODO:
 
 - grafiken: Objekte, Inventaritems, Umgebung (Pflanzen, Mauern, etc.), Haus(-ruine), SPieler, NPC, (Maulwurf?), Titelbild, Wände, (UI), Hintergrund (unterschiedlich für beide Zeiten)
-- Titelbildschirm, (Music muten), Ending
+- Titelbildschirm, (Music muten), 
+- =>Ending<=
 - Sounds suchen, sounds einbauen (lagfriee variante)
 - Maulwurf implementieren, 
 - Map bauen

@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=1]
 
-[ext_resource path="res://images/ph.png" type="Texture" id=1]
+[ext_resource path="res://images/altar.png" type="Texture" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 0, 0, 32, 0, 32, 32, 1, 32, 0, 32 )
+points = Vector2Array( 11, -17, 52, -17, 52, 0, 11, 0 )
 
 [sub_resource type="GDScript" id=2]
 
@@ -28,14 +28,16 @@ script/script = SubResource( 2 )
 [node name="collision" type="CollisionPolygon2D" parent="."]
 
 build_mode = 0
-polygon = Vector2Array( 0, 0, 32, 0, 32, 32, 1, 32, 0, 32 )
+polygon = Vector2Array( 11, -17, 52, -17, 52, 0, 11, 0 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="sprite" type="Sprite" parent="."]
 
+transform/pos = Vector2( 11, 0 )
 texture = ExtResource( 1 )
 centered = false
+offset = Vector2( -11, -47 )
 
 [node name="anim" type="AnimationPlayer" parent="."]
 

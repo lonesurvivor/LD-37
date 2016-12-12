@@ -1,22 +1,24 @@
-[gd_scene load_steps=65 format=1]
+[gd_scene load_steps=67 format=1]
 
 [ext_resource path="res://scenes/room_dummy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://images/background_1.png" type="Texture" id=2]
 [ext_resource path="res://tilesets/wall_tileset.tres" type="TileSet" id=3]
 [ext_resource path="res://tilesets/present_tileset.tres" type="TileSet" id=4]
-[ext_resource path="res://entities/digging_spot.tscn" type="PackedScene" id=5]
-[ext_resource path="res://entities/shovel.tscn" type="PackedScene" id=6]
-[ext_resource path="res://entities/hanging_skeleton.tscn" type="PackedScene" id=7]
-[ext_resource path="res://entities/small_rock.tscn" type="PackedScene" id=8]
-[ext_resource path="res://entities/artifact_1.tscn" type="PackedScene" id=9]
-[ext_resource path="res://entities/hook_target.tscn" type="PackedScene" id=10]
-[ext_resource path="res://entities/metal_door.tscn" type="PackedScene" id=11]
-[ext_resource path="res://entities/grave.tscn" type="PackedScene" id=12]
-[ext_resource path="res://entities/altar.tscn" type="PackedScene" id=13]
-[ext_resource path="res://entities/chainsaw.tscn" type="PackedScene" id=14]
-[ext_resource path="res://entities/fuel_can.tscn" type="PackedScene" id=15]
-[ext_resource path="res://entities/big_tree.tscn" type="PackedScene" id=16]
-[ext_resource path="res://entities/big_rock.tscn" type="PackedScene" id=17]
+[ext_resource path="res://entities/shovel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/hanging_skeleton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/small_rock.tscn" type="PackedScene" id=7]
+[ext_resource path="res://entities/artifact_1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/hook_target.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/metal_door.tscn" type="PackedScene" id=10]
+[ext_resource path="res://entities/grave.tscn" type="PackedScene" id=11]
+[ext_resource path="res://entities/altar.tscn" type="PackedScene" id=12]
+[ext_resource path="res://entities/chainsaw.tscn" type="PackedScene" id=13]
+[ext_resource path="res://entities/fuel_can.tscn" type="PackedScene" id=14]
+[ext_resource path="res://entities/big_tree.tscn" type="PackedScene" id=15]
+[ext_resource path="res://entities/big_rock.tscn" type="PackedScene" id=16]
+[ext_resource path="res://entities/artifact_2.tscn" type="PackedScene" id=17]
+[ext_resource path="res://entities/digging_spot.tscn" type="PackedScene" id=18]
+[ext_resource path="res://entities/note.tscn" type="PackedScene" id=19]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -304,10 +306,6 @@ tile_set = ExtResource( 4 )
 cell/size = Vector2( 8, 8 )
 tile_data = IntArray( 2555917, 6 )
 
-[node name="digging_spot" parent="floor_decoration_1" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( -19, 381 )
-
 [node name="floor_decoration_2" parent="."]
 
 tile_set = ExtResource( 4 )
@@ -323,57 +321,73 @@ cell/size = Vector2( 16, 16 )
 tile_set = ExtResource( 4 )
 cell/size = Vector2( 8, 8 )
 
-[node name="shovel" parent="entities" instance=ExtResource( 6 )]
+[node name="shovel" parent="entities" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 676, 637 )
+transform/pos = Vector2( 624, 544 )
 
-[node name="hanging_skeleton" parent="entities" instance=ExtResource( 7 )]
+[node name="hanging_skeleton" parent="entities" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 132, 49 )
 
-[node name="small_rock" parent="entities" instance=ExtResource( 8 )]
+[node name="small_rock" parent="entities" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 717, 305 )
 
-[node name="artifact_1" parent="entities" instance=ExtResource( 9 )]
+[node name="artifact_1" parent="entities" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 363, 81 )
 
-[node name="hook_target" parent="entities" instance=ExtResource( 10 )]
+[node name="hook_target" parent="entities" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 352, 112 )
 
-[node name="hook_target2" parent="entities" instance=ExtResource( 10 )]
+[node name="hook_target2" parent="entities" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 336, 736 )
 
-[node name="metal_door" parent="entities" instance=ExtResource( 11 )]
+[node name="metal_door" parent="entities" instance=ExtResource( 10 )]
 
-transform/pos = Vector2( 5, 159 )
+transform/pos = Vector2( 48, 192 )
 
-[node name="grave" parent="entities" instance=ExtResource( 12 )]
+[node name="grave" parent="entities" instance=ExtResource( 11 )]
 
 transform/pos = Vector2( 636, 616 )
 
-[node name="altar" parent="entities" instance=ExtResource( 13 )]
+[node name="altar" parent="entities" instance=ExtResource( 12 )]
 
 transform/pos = Vector2( 387, 99 )
 
-[node name="chainsaw" parent="entities" instance=ExtResource( 14 )]
+[node name="chainsaw" parent="entities" instance=ExtResource( 13 )]
 
 transform/pos = Vector2( 577, 48 )
 
-[node name="fuel_can" parent="entities" instance=ExtResource( 15 )]
+[node name="fuel_can" parent="entities" instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 315, 436 )
 
-[node name="big_tree" parent="entities" instance=ExtResource( 16 )]
+[node name="big_tree" parent="entities" instance=ExtResource( 15 )]
 
 transform/pos = Vector2( 671, 790 )
 
-[node name="big_rock" parent="entities" instance=ExtResource( 17 )]
+[node name="big_rock" parent="entities" instance=ExtResource( 16 )]
 
-transform/pos = Vector2( 377, 471 )
+transform/pos = Vector2( 192, 528 )
+
+[node name="artifact_2" parent="entities" instance=ExtResource( 17 )]
+
+transform/pos = Vector2( 320, 64 )
+
+[node name="digging_spot" parent="entities" instance=ExtResource( 18 )]
+
+transform/pos = Vector2( 32, 352 )
+
+[node name="note" parent="entities" instance=ExtResource( 19 )]
+
+transform/pos = Vector2( 288, 528 )
+
+[node name="sprite" parent="entities/note"]
+
+frame = 1
 
 [node name="outer" type="StaticBody2D" parent="dlr_walls"]
 
@@ -568,3 +582,4 @@ transform/pos = Vector2( 102, 691 )
 
 
 [editable path="repeating_floor"]
+[editable path="entities/note"]

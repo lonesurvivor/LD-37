@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://entities/hook.gd" type="Script" id=1]
-[ext_resource path="res://images/inv_grappling_hook.png" type="Texture" id=2]
+[ext_resource path="res://images/hook.png" type="Texture" id=2]
 [ext_resource path="res://components/movement.tscn" type="PackedScene" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]

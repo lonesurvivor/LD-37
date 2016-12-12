@@ -56,10 +56,10 @@ func interact(item):
 		hp.set_pos(get_pos())
 		hp.throw(direction)
 		
-	elif(item and (item.id == "artifact_1" or item.id == "artifact_2")):
+	elif(item and (item.id == "artifact_1" or item.id == "artifact_3")):
 		if(wn.current_scene_name == "past"):
 			wn.switch_scene("present")
-		elif(wn.current_scene_name == "present" and item.id == "artifact_2"):
+		elif(wn.current_scene_name == "present" and item.id == "artifact_3"):
 			wn.switch_scene("past")
 		
 

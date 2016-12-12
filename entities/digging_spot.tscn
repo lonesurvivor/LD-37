@@ -5,18 +5,18 @@
 [sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 6, -7, 6, 8, -9, 8, -9, -7 )
+points = Vector2Array( -12, -22, 9, -22, 9, -5, 4, 0, -7, 0, -12, -5 )
 
 [sub_resource type="GDScript" id=2]
 
-script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nfunc on_player_interaction(item):\n\tif(item and item == g.items.shovel):\n\t\tg.inventory_add(g.items.bad_hook)\n\t\tqueue_free()\n\t\treturn true\n\telse:\n\t\tg.show_text(\"That is looking suspicious\")\n\t\treturn false\n"
+script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nvar dug = false\n\nfunc on_player_interaction(item):\n\tif(item and item == g.items.shovel):\n\t\tif(!dug):\n\t\t\tget_node(\"sprite\").set_frame(1)\n\t\t\tg.inventory_add(g.items.bad_hook)\n\t\t\tdug = true\n\t\telse:\n\t\t\tg.show_text(\"There is nothing else left\")\n\t\treturn true\n\telse:\n\t\tg.show_text(\"That is looking suspicious\")\n\t\treturn false\n"
 
 [node name="digging_spot" type="StaticBody2D"]
 
 input/pickable = false
 shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = true
+shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
@@ -28,13 +28,16 @@ script/script = SubResource( 2 )
 [node name="collision" type="CollisionPolygon2D" parent="."]
 
 build_mode = 0
-polygon = Vector2Array( -9, -7, -9, 8, 6, 8, 6, -7 )
+polygon = Vector2Array( -12, -5, -7, 0, 4, 0, 9, -5, 9, -22, -12, -22 )
 shape_range = Vector2( 0, 0 )
-trigger = true
+trigger = false
 
 [node name="sprite" type="Sprite" parent="."]
 
+transform/pos = Vector2( -1, 0 )
 texture = ExtResource( 1 )
+offset = Vector2( 1, -20 )
+hframes = 2
 
 [node name="anim" type="AnimationPlayer" parent="."]
 

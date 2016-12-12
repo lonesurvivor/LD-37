@@ -27,5 +27,10 @@ func combine(item1, item2):
 		g.inventory_remove("chainsaw_handle")
 		g.inventory_remove("blade")
 		g.show_text("Machete!")
+	elif(_match("artifact_1", "artifact_2")):
+		g.inventory_add(g.items.artifact_3)
+		g.inventory_remove("artifact_1")
+		g.inventory_remove("artifact_2")
+		g.show_text("They fit  together!")
 
 	
