@@ -9,7 +9,7 @@ points = Vector2Array( -13, -9, 9, -9, 9, 31, -13, 31 )
 
 [sub_resource type="GDScript" id=2]
 
-script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nfunc on_player_interaction(item):\n\tif(!item):\n\t\tg.show_text(\"A grave\")\n\t\treturn true\n\telse:\n\t\treturn false\n"
+script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nfunc on_player_interaction(item):\n\tif(!item):\n\t\tg.show_text(\"What a comforting sight. An empty grave. I don\\u2019t know what would be more alarming, to find someone inside, or that it might be waiting for me.\")\n\t\treturn true\n\telse:\n\t\treturn false\n"
 
 [node name="grave" type="StaticBody2D"]
 

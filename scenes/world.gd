@@ -46,10 +46,13 @@ func _ready():
 	next_scene_name = "present"
 	g.inventory_add(g.items.machete)
 	g.inventory_add(g.items.gummy_worms)
+	g.inventory_add(g.items.grappling_hook)
 	switch_scene_now()
 	yield(get_tree(), "idle_frame")
 	if(scene_node.has_node("spawn")):
 		player_node.set_pos(scene_node.get_node("spawn").get_pos())
+		
+	show_text("She awakens. Nothing in the vicinity reminds her of anything. Nothing is familiar. Where is she, and when...")
 	
 func _process(delta):
 	if(player_node.is_inside_tree()):

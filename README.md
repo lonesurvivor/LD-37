@@ -3,12 +3,12 @@ My Ludum Dare #37 game
 
 TODO:
 
-- grafiken:  Umgebung (Pflanzen, Mauern, etc.),  Titelbild, Wände, (UI), Hintergrund (unterschiedlich für beide Zeiten)
+- (Big Rock bug!!!!)
 - Titelbildschirm, (Music muten), 
 - =>Ending<=
 - sounds einbauen (lagfriee variante)
 - Map bauen
-- Texte einbauen
+- (Texte einbauen)
 - Umgebungsanimation (vereinzelt)
 - Bei fehlerhafter interaktion mit item nicht standard-interaktion ausführen
 - (Objekte highlighten wenn davor?)

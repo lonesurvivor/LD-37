@@ -9,7 +9,7 @@ points = Vector2Array( 1, 0, -12, -6, -1, -29, 12, -23 )
 
 [sub_resource type="GDScript" id=2]
 
-script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nfunc on_player_interaction(item):\n\tif(!item):\n\t\tg.inventory_add(g.items.metal_door)\n\t\tqueue_free()\n\t\treturn true\n\telse:\n\t\treturn false\n"
+script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nfunc on_player_interaction(item):\n\tif(!item):\n\t\tg.show_text(\"The remains of a once strong steel door. This one is not holding anybody back anymore.\")\n\t\tg.inventory_add(g.items.metal_door)\n\t\tqueue_free()\n\t\treturn true\n\telse:\n\t\treturn false\n"
 
 [node name="metal_door" type="StaticBody2D"]
 

@@ -9,7 +9,7 @@ points = Vector2Array( -8, -6, 8, -6, 8, 0, -8, 0 )
 
 [sub_resource type="GDScript" id=2]
 
-script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nvar chopped = false\n\nfunc on_player_interaction(item):\n\tif(item and item == g.items.machete):\n\t\tif(!chopped):\n\t\t\tg.add_key(\"tree_modified\", true)\n\t\t\tget_node(\"sprite\").set_frame(1)\n\t\treturn true\n\telse:\n\t\treturn false\n"
+script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nvar chopped = false\n\nfunc on_player_interaction(item):\n\tif(item == g.items.machete):\n\t\tif(!chopped):\n\t\t\tg.show_text(\"So we meet again. Take this, innocent piece of flora.\")\n\t\t\tg.add_key(\"tree_modified\", true)\n\t\t\tget_node(\"sprite\").set_frame(1)\n\t\treturn true\n\telse:\n\t\tg.show_text([\"That\\u2019s the place where I couldn\\u2019t pass before... or after...\", \"If I could find a way to cut it back...\"])\n\t\treturn true\n"
 
 [node name="young_tree" type="StaticBody2D"]
 

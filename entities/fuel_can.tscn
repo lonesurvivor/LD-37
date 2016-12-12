@@ -9,7 +9,7 @@ points = Vector2Array( 8, -8, 8, 0, -8, 0, -8, -8 )
 
 [sub_resource type="GDScript" id=2]
 
-script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nfunc on_player_interaction(item):\n\tif(!item):\n\t\tg.inventory_add(g.items.fuel_can)\n\t\tqueue_free()\n\t\treturn true\n\telse:\n\t\treturn false\n"
+script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nfunc on_player_interaction(item):\n\tif(!item):\n\t\tg.show_text([\"A red gas canister with a warning label: \\u201cFor chainsaws only!\\u201d\", \n\t\t\t\t\t\"\\u201cJust what I needed. When do you get a chainsaw and one of these both in one place.\\u201d\",\n\t\t\t\t\t\"As I pick up the canister, I feel stronger than ever\\u2026Or is that thing empty\?!\",\n\t\t\t\t\t\"I decide not to take that useless piece of equipment with me.\",\n\t\t\t\t\t\"No need to carry some useless piece of weight.\",\n\t\t\t\t\t\"...\",\n\t\t\t\t\t\"Alright, I\\u2019ll take it.\"])\n\t\tg.inventory_add(g.items.fuel_can)\n\t\tqueue_free()\n\t\treturn true\n\telse:\n\t\treturn false\n"
 
 [node name="fuel_can" type="StaticBody2D"]
 

@@ -9,7 +9,7 @@ points = Vector2Array( -11, 0, -11, -18, 11, -18, 11, 0 )
 
 [sub_resource type="GDScript" id=2]
 
-script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nvar taken = false\n\nfunc on_player_interaction(item):\n\tif(!item and g.get_key(\"gave_skull\")):\n\t\tif(!taken):\n\t\t\tg.inventory_add(g.items.gummy_worms)\n\t\t\tget_node(\"sprite\").set_frame(1)\n\t\t\ttaken = true\n\t\telse:\n\t\t\tg.show_text(\"I don\'t want that table\")\n\t\t\n\t\treturn true\n\telif(!item):\n\t\tg.show_text(\"Hey! Those are mine. You can\'t have them!\")\n\t\treturn true\n\telse:\n\t\treturn false\n"
+script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nvar taken = false\n\nfunc on_player_interaction(item):\n\tif(!item and g.get_key(\"gave_skull\")):\n\t\tif(!taken):\n\t\t\tg.inventory_add(g.items.gummy_worms)\n\t\t\tget_node(\"sprite\").set_frame(1)\n\t\t\ttaken = true\n\t\telse:\n\t\t\tg.show_text(\"I don\'t want that table\")\n\t\t\n\t\treturn true\n\telif(!item):\n\t\tg.show_text([\"A pack of Gummy Worms. This guy sure isn\\u2019t the only one who would enjoy those.\",\"You never know when you need some of those. But he\\u2019s to focussed on them.\"])\n\t\treturn true\n\telse:\n\t\treturn false\n"
 
 [node name="gummy_worms" type="StaticBody2D"]
 

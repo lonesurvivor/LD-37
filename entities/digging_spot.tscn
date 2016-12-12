@@ -9,7 +9,7 @@ points = Vector2Array( -12, -22, 9, -22, 9, -5, 4, 0, -7, 0, -12, -5 )
 
 [sub_resource type="GDScript" id=2]
 
-script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nvar dug = false\n\nfunc on_player_interaction(item):\n\tif(item and item == g.items.shovel):\n\t\tif(!dug):\n\t\t\tget_node(\"sprite\").set_frame(1)\n\t\t\tg.inventory_add(g.items.bad_hook)\n\t\t\tdug = true\n\t\telse:\n\t\t\tg.show_text(\"There is nothing else left\")\n\t\treturn true\n\telse:\n\t\tg.show_text(\"That is looking suspicious\")\n\t\treturn false\n"
+script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nvar dug = false\n\nfunc on_player_interaction(item):\n\tif(item and item == g.items.shovel):\n\t\tif(!dug):\n\t\t\tg.show_text([\"Alright, but I don\\u2019t think I will find treasure anywhere in here...\", \"Oh, wait...\"])\n\t\t\tget_node(\"sprite\").set_frame(1)\n\t\t\tg.inventory_add(g.items.bad_hook)\n\t\t\tdug = true\n\t\telse:\n\t\t\tg.show_text(\"There is nothing else left\")\n\t\treturn true\n\telse:\n\t\tg.show_text(\"Just an unsuspicious small mound of dirt next to a cross. I should leave it alone.\")\n\t\treturn true\n"
 
 [node name="digging_spot" type="StaticBody2D"]
 

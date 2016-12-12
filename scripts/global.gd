@@ -10,6 +10,9 @@ var keys = Dictionary()
 
 signal inventory_changed
 
+func _ready():
+	randomize()
+
 # set nodes -------------------------------------------------------------------
 
 var world_node = null setget set_world_node,get_world_node
@@ -76,3 +79,7 @@ func remove_key(key):
 func show_text(text_array):
 	if(world_node):
 		world_node.show_text(text_array)
+		
+func show_random_text(text_array):
+	if(world_node):
+		show_text(text_array[randi() % text_array.size()])

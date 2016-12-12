@@ -9,7 +9,9 @@ onready var interactor_length = get_node("interactor").get_cast_to().length()
 onready var movement = get_node("movement")
 onready var anim = get_node("anim")
 
-var fail_texts = ["That doesn't work."]
+var fail_texts = ["I don't think this will work.", "How do you think this would end?", 
+					"You do that yourself.", "I don't think so.", "It doesn't work that way.",
+					"Close...but no.", "Nah...", "Certainly an interesting thought...", "Under different circumstances, maybe."]
 
 func _ready():
 	randomize()
