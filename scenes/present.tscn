@@ -382,7 +382,7 @@ transform/pos = Vector2( 261, 649 )
 
 [node name="artifact_1" parent="entities" instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 320, 80 )
+transform/pos = Vector2( 330, 109 )
 
 [node name="hook_target" parent="entities" instance=ExtResource( 9 )]
 
@@ -428,7 +428,7 @@ transform/pos = Vector2( 715, 27 )
 
 [node name="big_tree" parent="entities" instance=ExtResource( 15 )]
 
-transform/pos = Vector2( 448, 736 )
+transform/pos = Vector2( 456, 737 )
 
 [node name="big_rock" parent="entities" instance=ExtResource( 16 )]
 
@@ -446,7 +446,7 @@ transform/pos = Vector2( 702, 207 )
 
 editor/display_folded = true
 transform/pos = Vector2( 319, 267 )
-text = [ "Right next to where I woke up lies a note, handwritten. How long did I sleep anyways\?", "The weathered sheet of paper reads:\n\tASDFASDFASDFASDFASDFASDFASDF", "Even more upsetting than these words is the handwriting itself. Is it my own\?", "I can\'t remember. Not really a pen around to try it out either.", "Enough now. I should get going.", "Lets try to make sense of it all." ]
+text = [ "Right next to where I woke up lies a note, handwritten. How long did I sleep anyways\?", "I can\'t decipher the words, the paper is too weathered, but something tells me that this is my handwriting.", "Even more upsetting than these words is the handwriting itself. Is it my own\?", "I can\'t remember. Not really a pen around to try it out either.", "Enough now. I should get going.", "Lets try to make sense of it all." ]
 
 [node name="ruins_1" parent="entities" instance=ExtResource( 20 )]
 
@@ -464,7 +464,7 @@ transform/pos = Vector2( 92, 130 )
 
 editor/display_folded = true
 transform/pos = Vector2( 626, 468 )
-text = [ "A handwritten note:", "Nobody expected this outcome. Actually, Rogers did. But she was always considered the crazy one. As everybody left, the Crew deemed it safe to leave the experiment running unattended. I wish I had been there, I think we all do.", "Even the janitor was napping. But we have the results and that is all that matters. The whole team deserves some time off.", "I know they have been putting all they got into the project. Feels almost like witnessing the first steps of your child\\u2026How I miss Annie. She would be a grown woman by now.", "Day 156, June 24, 01.00 pm, S. J." ]
+text = [ "A handwritten note:", "Nobody expected this outcome. Actually, Rogers did. But she was always considered the crazy one. ", "As everybody left, the Crew deemed it safe to leave the experiment running unattended. I wish I had been there, I think we all do.", "Even the janitor was napping. But we have the results and that is all that matters. The whole team deserves some time off.", "I know they have been putting all they got into the project. Feels almost like witnessing the first steps of your child\\u2026How I miss Annie. She would be a grown woman by now.", "Day 156, June 24, 01.00 pm, S. J." ]
 
 [node name="note2" parent="entities" instance=ExtResource( 19 )]
 
