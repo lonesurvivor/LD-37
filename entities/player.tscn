@@ -171,7 +171,7 @@ frame = 1
 
 [node name="movement" parent="." instance=ExtResource( 3 )]
 
-speed = 160
+speed = 100
 
 [node name="anim" type="AnimationPlayer" parent="."]
 
