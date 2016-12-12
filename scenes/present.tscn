@@ -367,7 +367,7 @@ transform/pos = Vector2( 315, 436 )
 
 [node name="big_tree" parent="entities" instance=ExtResource( 15 )]
 
-transform/pos = Vector2( 671, 790 )
+transform/pos = Vector2( 96, 672 )
 
 [node name="big_rock" parent="entities" instance=ExtResource( 16 )]
 
