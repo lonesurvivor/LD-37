@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=1]
+[gd_scene load_steps=69 format=1]
 
 [ext_resource path="res://scenes/room_dummy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://images/background_1.png" type="Texture" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://entities/artifact_2.tscn" type="PackedScene" id=17]
 [ext_resource path="res://entities/digging_spot.tscn" type="PackedScene" id=18]
 [ext_resource path="res://entities/note.tscn" type="PackedScene" id=19]
+[ext_resource path="res://entities/ruins_1.tscn" type="PackedScene" id=20]
+[ext_resource path="res://entities/ruins_2.tscn" type="PackedScene" id=21]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -383,11 +385,20 @@ transform/pos = Vector2( 32, 352 )
 
 [node name="note" parent="entities" instance=ExtResource( 19 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 288, 528 )
 
 [node name="sprite" parent="entities/note"]
 
 frame = 1
+
+[node name="ruins_1" parent="entities" instance=ExtResource( 20 )]
+
+transform/pos = Vector2( 176, 240 )
+
+[node name="ruins_2" parent="entities" instance=ExtResource( 21 )]
+
+transform/pos = Vector2( 192, 192 )
 
 [node name="outer" type="StaticBody2D" parent="dlr_walls"]
 

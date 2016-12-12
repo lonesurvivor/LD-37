@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=1]
+[gd_scene load_steps=57 format=1]
 
 [ext_resource path="res://scenes/room_dummy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tilesets/past_tileset.tres" type="TileSet" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://entities/big_rock.tscn" type="PackedScene" id=6]
 [ext_resource path="res://entities/chainsaw.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entities/hook_target.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/house.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -286,6 +287,10 @@ transform/pos = Vector2( 362, 696 )
 [node name="hook_target" parent="entities" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 239, 537 )
+
+[node name="house" parent="entities" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 163, 370 )
 
 [node name="outer" type="StaticBody2D" parent="dlr_walls"]
 
