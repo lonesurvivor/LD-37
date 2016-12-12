@@ -45,6 +45,7 @@ func _ready():
 	player_node = load("res://entities/player.tscn").instance()
 	next_scene_name = "present"
 	g.inventory_add(g.items.machete)
+	g.inventory_add(g.items.gummy_worms)
 	switch_scene_now()
 	yield(get_tree(), "idle_frame")
 	if(scene_node.has_node("spawn")):
