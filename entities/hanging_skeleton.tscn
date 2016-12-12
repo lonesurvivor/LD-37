@@ -9,7 +9,7 @@ points = Vector2Array( -6, -8, 6, -8, 6, 2, -6, 2 )
 
 [sub_resource type="GDScript" id=2]
 
-script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nfunc on_player_interaction(item):\n\tif(!item):\n\t\tg.show_text([\"\\u201cHey, buddy! How\\u2019s it hangin\\u2019\?\\u201d\", \"Mind, if I borrow that rope\?\", \"No\?\", \"Well, Charlie Bronson\\u2019s always got rope.\", \"As I take a swing at the skeleton, to relieve it of its mount and only decoration, the poor fellow comes apart.\", \"So, you\\u2019re coming with me\? All the better, I could use some company.\"])\n\t\tg.inventory_add(g.items.rope)\n\t\tg.inventory_add(g.items.skull)\n\t\tqueue_free()\n\t\treturn true\n\telse:\n\t\treturn false\n"
+script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nfunc on_player_interaction(item):\n\tif(!item):\n\t\tg.show_text([\"Hey, buddy! How\'s it hangin\?\", \"Mind, if I borrow that rope\?\", \"No\?\", \"Well, Charlie Bronson\'s always got rope.\", \"As I take a swing at the skeleton, to relieve it of its mount and only decoration, the poor fellow comes apart.\", \"So, you\\u2019re coming with me\? All the better, I could use some company.\"])\n\t\tyield(g.get_world_node(), \"text_ended\")\n\t\tg.inventory_add(g.items.rope)\n\t\tg.inventory_add(g.items.skull)\n\t\tqueue_free()\n\t\treturn true\n\telse:\n\t\treturn false\n"
 
 [node name="hanging_skeleton" type="StaticBody2D"]
 

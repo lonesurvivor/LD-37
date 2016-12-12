@@ -9,7 +9,7 @@ points = Vector2Array( -8, -12, 8, -12, 8, 0, -8, 0 )
 
 [sub_resource type="GDScript" id=2]
 
-script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nfunc on_player_interaction(item):\n\tif(item and item == g.items.gummy_worms):\n\t\tif(g.get_key(\"rock_state\") == \"metal_door\"):\n\t\t\tg.remove_key(\"rock_state\")\n\t\t\tg.inventory_remove(\"gummy_worms\")\n\t\t\tg.inventory_add(g.items.dull_blade)\n\t\t\tqueue_free()\n\t\t\tg.show_text([\"Not the real deal, but that has to do. Here you go, tasty totally real worms for you.\", \"The mole is digging out the metal. Awesome!\"])\n\t\telse:\n\t\t\tg.show_text(\"Why should I waste those\?\")\n\t\treturn true\n\telif(item):\n\t\treturn false\n\telse:\n\t\tg.show_text(\"Hey little fella\\u2019. Where did you come from\? You look hungry. What do moles eat\?\")\n\t\treturn true\n"
+script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nfunc on_player_interaction(item):\n\tif(item and item == g.items.gummy_worms):\n\t\tif(g.get_key(\"rock_state\") == \"metal_door\"):\n\t\t\tg.show_text([\"Not the real deal, but that has to do. Here you go, tasty totally real worms for you.\", \"The mole is digging out the metal. Awesome!\"])\n\t\t\tyield(g.get_world_node(), \"text_ended\")\n\t\n\t\t\tg.remove_key(\"rock_state\")\n\t\t\tg.inventory_remove(\"gummy_worms\")\n\t\t\tg.inventory_add(g.items.dull_blade)\n\t\t\tqueue_free()\n\t\telse:\n\t\t\tg.show_text(\"Why should I waste those\?\")\n\t\treturn true\n\telif(item):\n\t\treturn false\n\telse:\n\t\tg.show_text(\"Hey little fella\\u2019. Where did you come from\? You look hungry. What do moles eat\?\")\n\t\treturn true\n"
 
 [node name="mole" type="StaticBody2D"]
 

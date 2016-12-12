@@ -14,7 +14,7 @@ points = Vector2Array( 28, 0, 28, -9, 57, -9, 57, 0 )
 
 [sub_resource type="GDScript" id=2]
 
-script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nfunc on_player_interaction(item):\n\tpass\n"
+script/source = "extends StaticBody2D\n\nonready var g = get_node(\"/root/global\")\n\nfunc on_player_interaction(item):\n\tg.show_text(\"I wonder what this was once.\")\n\treturn true\n"
 
 [node name="ruins_2" type="StaticBody2D"]
 

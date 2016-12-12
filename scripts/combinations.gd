@@ -34,7 +34,9 @@ func combine(item1, item2):
 		g.inventory_remove("artifact_1")
 		g.inventory_remove("artifact_2")
 		g.get_world_node().get_node("samples").play("artifact_complete")
-		g.show_text("It fits.")
+		g.show_text(["It fits.", "As I put the two pieces together, I get once again pulled somewhere. This time without the help of an altar.", "Where will it lead me? I don't know. But it will hopefully help me to figure out what happended to this world.", "...", "THANK YOU FOR PLAYING!", "The game will quit now. Bye!"])
+		yield(g.get_world_node(), "text_ended")
+		get_tree().quit()
 	else:
 		g.show_text("These don't fit together")
 

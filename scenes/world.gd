@@ -44,6 +44,7 @@ func _ready():
 		
 	player_node = load("res://entities/player.tscn").instance()
 	next_scene_name = "present"
+	
 	switch_scene_now()
 	yield(get_tree(), "idle_frame")
 	if(scene_node.has_node("spawn")):
