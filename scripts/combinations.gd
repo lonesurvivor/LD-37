@@ -17,15 +17,15 @@ func combine(item1, item2):
 		g.inventory_remove("hook")
 		g.inventory_remove("rope")
 		g.show_text("Wow!")
-	elif(_match("sharpening_rock", "dull_blade")):
-		g.inventory_add(g.items.blade)
-		g.inventory_remove("dull_blade")
-		g.inventory_remove("sharpening_rock")
-		g.show_text("Now it is sharp!")
-	elif(_match("chainsaw_handle", "blade")):
+	elif(_match("sharpening_rock", "dull_machete")):
 		g.inventory_add(g.items.machete)
+		g.inventory_remove("dull_machete")
+#		g.inventory_remove("sharpening_rock")
+		g.show_text("Now it is sharp!")
+	elif(_match("chainsaw_handle", "dull_blade")):
+		g.inventory_add(g.items.dull_machete)
 		g.inventory_remove("chainsaw_handle")
-		g.inventory_remove("blade")
+		g.inventory_remove("dull_blade")
 		g.show_text("Machete!")
 	elif(_match("artifact_1", "artifact_2")):
 		g.inventory_add(g.items.artifact_3)

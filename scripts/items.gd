@@ -16,9 +16,9 @@ onready var gummy_worms = I.new("gummy_worms","Common gummy worms","They almost 
 onready var chainsaw = I.new("chainsaw","Chainsaw","Chainsaw","res://images/chainsaw_inv.png")
 onready var chainsaw_handle = I.new("chainsaw_handle","Chainsaw Handle","Chainsaw Handle","res://images/chainsaw_handle_inv.png")
 onready var fuel_can = I.new("fuel_can","A fuel can.",["Nice!", "Oh, it's empty"],"res://images/fuel_can_inv.png")
-onready var dull_blade = I.new("dull_blade","A dull blade","bla","res://images/ph.png")
-onready var blade = I.new("blade","A sharp blade","bla","res://images/ph.png")
-onready var machete = I.new("machete","A Machete","bla","res://images/ph.png")
+onready var dull_blade = I.new("dull_blade","A dull blade","bla","res://images/dull_blade_inv.png")
+onready var dull_machete = I.new("dull_machete","A dull_machete","bla","res://images/dull_machete_inv.png")
+onready var machete = I.new("machete","A Machete","bla","res://images/machete_inv.png")
 
 onready var artifact_2 = I.new("artifact_2","An even more mysterious thing","bla","res://images/artifact_2_inv.png")
 
