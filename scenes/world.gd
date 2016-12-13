@@ -132,11 +132,6 @@ func _input(event):
 			var item = get_node("ui/inventory").get_selected_item()
 			if(item != null):
 				show_text(item.description)
-		elif(event.is_action_pressed("ui_page_down")):
-			if(current_scene_name == "past"):
-				switch_scene("present")
-			elif(current_scene_name == "present"):
-				switch_scene("past")
 	elif(!g.has_player_control() and get_node("ui/textbox").is_visible()):
 		if(event.is_action_pressed("ui_accept") or event.is_action_pressed("ui_combine")  or event.is_action_pressed("ui_inspect")):
 			next_text_page()
